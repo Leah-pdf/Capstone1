@@ -68,6 +68,8 @@ padContainer.addEventListener("click", padHandler);
 function startButtonHandler() {
   // TODO: Write your code here.
 
+  
+
   return { startButton, statusSpan };
 }
 
