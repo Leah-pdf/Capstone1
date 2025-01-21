@@ -38,7 +38,23 @@ let roundCount = 0; // track the number of rounds that have been played so far
     sound: new Audio("../assets/simon-says-sound-1.mp3"),
   },
   // TODO: Add the objects for the green, blue, and yellow pads. Use object for the red pad above as an example.
+  {
+    color: "green",
+    selector: document.querySelector(".js-pad-red"),
+    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+  },
+  {
+    color: "blue",
+    selector: document.querySelector(".js-pad-red"),
+    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+  },
+  {
+    color: "yellow",
+    selector: document.querySelector(".js-pad-red"),
+    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+  },
 ];
+
 
 /**
  * EVENT LISTENERS
@@ -68,7 +84,7 @@ padContainer.addEventListener("click", padHandler);
 function startButtonHandler() {
   // TODO: Write your code here.
 
-  
+
 
   return { startButton, statusSpan };
 }
