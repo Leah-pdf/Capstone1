@@ -7,6 +7,8 @@
  const statusSpan = document.querySelector(".js-status");
  const heading = document.querySelector(".js-heading");
  const padContainer = document.querySelector(".js-pad-container");
+ const infoText = document.querySelector(".js-info-text");
+ const levelSelect = document.querySelector("#levelSelect");
 
 /**
  * VARIABLES
@@ -41,17 +43,17 @@ let roundCount = 0; // track the number of rounds that have been played so far
   {
     color: "green",
     selector: document.querySelector(".js-pad-green"),
-    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+    sound: new Audio("../assets/simon-says-sound-2.mp3"),
   },
   {
     color: "blue",
     selector: document.querySelector(".js-pad-blue"),
-    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+    sound: new Audio("../assets/simon-says-sound-3.mp3"),
   },
   {
     color: "yellow",
     selector: document.querySelector(".js-pad-yellow"),
-    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+    sound: new Audio("../assets/simon-says-sound-4.mp3"),
   },
 ];
 
@@ -269,7 +271,7 @@ function activatePads(sequence) {
 
     computerSequence.push(getRandomItem(pads).color)
   activatePads(computerSequence);
-  setTimeout(() => playHumanTurn(roundCount), roundCount * 600 + 1000); // 5
+  setTimeout(() => playHumanTurn(), roundCount * 600 + 1000); // 5
 }
 
 /**
