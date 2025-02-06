@@ -1,6 +1,7 @@
 /** 
  * DOM SELECTORS
  */
+
 const startButton = document.querySelector(".js-start-button");
 const statusSpan = document.querySelector(".js-status");
 const heading = document.querySelector(".js-heading");
@@ -11,14 +12,17 @@ const padContainer = document.querySelector(".js-pad-container");
  */
 let computerSequence = [];
 let playerSequence = [];
-let maxRoundCount = 8; // Default game difficulty
+let maxRoundCount = 8;
 let roundCount = 0;
 
+/**
+ * Pads configuration
+ */
 const pads = [
   { color: "red", selector: document.querySelector(".js-pad-red"), sound: new Audio("../assets/simon-says-sound-1.mp3") },
   { color: "green", selector: document.querySelector(".js-pad-green"), sound: new Audio("../assets/simon-says-sound-2.mp3") },
   { color: "blue", selector: document.querySelector(".js-pad-blue"), sound: new Audio("../assets/simon-says-sound-3.mp3") },
-  { color: "yellow", selector: document.querySelector(".js-pad-yellow"), sound: new Audio("../assets/simon-says-sound-4.mp3") },
+  { color: "yellow", selector: document.querySelector(".js-pad-yellow"), sound: new Audio("../assets/simon-says-sound-4.mp3") }
 ];
 
 /**
@@ -34,7 +38,6 @@ function startButtonHandler() {
   roundCount = 1;
   computerSequence = [];
   playerSequence = [];
-
   startButton.classList.add("hidden");
   statusSpan.classList.remove("hidden");
   playComputerTurn();
@@ -43,7 +46,6 @@ function startButtonHandler() {
 function padHandler(event) {
   const { color } = event.target.dataset;
   if (!color) return;
-  
   const pad = pads.find(pad => pad.color === color);
   pad.sound.play();
   checkPress(color);
@@ -53,7 +55,7 @@ function padHandler(event) {
  * HELPER FUNCTIONS
  */
 function getRandomItem(collection) {
-  return collection.length ? collection[Math.floor(Math.random() * collection.length)] : null;
+  return collection[Math.floor(Math.random() * collection.length)];
 }
 
 function setText(element, text) {
@@ -77,7 +79,6 @@ function playComputerTurn() {
   padContainer.classList.add("unclickable");
   setText(statusSpan, "The computer's turn...");
   setText(heading, `Round ${roundCount} of ${maxRoundCount}`);
-
   computerSequence.push(getRandomItem(pads).color);
   activatePads(computerSequence);
   setTimeout(() => playHumanTurn(), roundCount * 600 + 1000);
@@ -91,42 +92,38 @@ function playHumanTurn() {
 function checkPress(color) {
   playerSequence.push(color);
   const index = playerSequence.length - 1;
-  const remainingPresses = computerSequence.length - playerSequence.length;
-  setText(statusSpan, `Your turn: ${remainingPresses} presses left`);
-
   if (computerSequence[index] !== playerSequence[index]) {
-    resetGame("Arrr! Ye failed! Walk the plank!");
+    resetGame("Arrr, ye pressed the wrong pad! Walk the plank!");
     return;
   }
-  if (remainingPresses === 0) {
+  if (playerSequence.length === computerSequence.length) {
     checkRound();
+  } else {
+    setText(statusSpan, `Your turn: ${computerSequence.length - playerSequence.length} presses left`);
   }
 }
 
 function checkRound() {
-  if (playerSequence.length === maxRoundCount) {
-    resetGame("Yarr! Ye be a true pirate captain!");
-    return;
+  if (roundCount === maxRoundCount) {
+    resetGame("Shiver me timbers! Ye won!");
+  } else {
+    roundCount++;
+    playerSequence = [];
+    setText(statusSpan, "Nice! Keep going!");
+    setTimeout(() => playComputerTurn(), 1000);
   }
-  roundCount++;
-  playerSequence = [];
-  setText(statusSpan, "Nice! Keep going!");
-  setTimeout(() => playComputerTurn(), 1000);
 }
 
 function resetGame(message) {
   computerSequence = [];
   playerSequence = [];
   roundCount = 0;
-
   alert(message);
   setText(heading, "Captain's Orders");
   startButton.classList.remove("hidden");
   statusSpan.classList.add("hidden");
   padContainer.classList.add("unclickable");
 }
-
-
 /**
 * Exposing functions for testing
 */
