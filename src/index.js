@@ -40,17 +40,17 @@ let roundCount = 0; // track the number of rounds that have been played so far
   // TODO: Add the objects for the green, blue, and yellow pads. Use object for the red pad above as an example.
   {
     color: "green",
-    selector: document.querySelector(".js-pad-red"),
+    selector: document.querySelector(".js-pad-green"),
     sound: new Audio("../assets/simon-says-sound-1.mp3"),
   },
   {
     color: "blue",
-    selector: document.querySelector(".js-pad-red"),
+    selector: document.querySelector(".js-pad-blue"),
     sound: new Audio("../assets/simon-says-sound-1.mp3"),
   },
   {
     color: "yellow",
-    selector: document.querySelector(".js-pad-red"),
+    selector: document.querySelector(".js-pad-yellow"),
     sound: new Audio("../assets/simon-says-sound-1.mp3"),
   },
 ];
@@ -83,7 +83,6 @@ startButton.addEventListener("click", startButtonHandler);
  *
  */
 function startButtonHandler() {
-  setLevel();
   setLevel(+document.querySelector("#levelSelect").value);
   roundCount++;
 
@@ -162,6 +161,7 @@ function setLevel(level = 1) {
     default:
       return "Please enter level 1, 2, 3, or 4";
   }
+  return maxRoundCount;
 }
 
 
@@ -365,9 +365,10 @@ function resetGame(text) {
   computerSequence = [];
   playerSequence = [];
   roundCount = 0;
+  maxRoundCount = 0;
 
   alert(text);
-  setText(heading, "Simon Says");
+  setText(heading, "Captain's Orders");
   startButton.classList.remove("hidden");
   statusSpan.classList.add("hidden");
   padContainer.classList.add("unclickable");
