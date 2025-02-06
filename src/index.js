@@ -55,6 +55,7 @@ function startButtonHandler() {
  startButton.classList.add("hidden");
  statusSpan.classList.remove("hidden");
  playComputerTurn();
+ console.log("Start button clicked");
 }
 
 function padHandler(event) {
