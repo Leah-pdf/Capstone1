@@ -49,7 +49,7 @@ padContainer.addEventListener("click", padHandler);
 * EVENT HANDLERS
 */
 function startButtonHandler() {
- setLevel(+levelSelect.value);
+ setLevel(0);
  roundCount = 1;
  startButton.classList.add("hidden");
  statusSpan.classList.remove("hidden");
