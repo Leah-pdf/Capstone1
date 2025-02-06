@@ -1,5 +1,5 @@
-/** 
- * DOM SELECTORS
+/*
+ DOM SELECTORS
  */
 
 const startButton = document.querySelector(".js-start-button");
@@ -7,16 +7,16 @@ const statusSpan = document.querySelector(".js-status");
 const heading = document.querySelector(".js-heading");
 const padContainer = document.querySelector(".js-pad-container");
 
-/**
- * VARIABLES
+/*
+  VARIABLES
  */
 let computerSequence = [];
 let playerSequence = [];
 let maxRoundCount = 8;
 let roundCount = 0;
 
-/**
- * Pads configuration
+/*
+  Pads configuration
  */
 const pads = [
   { color: "red", selector: document.querySelector(".js-pad-red"), sound: new Audio("../assets/simon-says-sound-1.mp3") },
@@ -25,14 +25,14 @@ const pads = [
   { color: "yellow", selector: document.querySelector(".js-pad-yellow"), sound: new Audio("../assets/simon-says-sound-4.mp3") }
 ];
 
-/**
- * EVENT LISTENERS
+/*
+ EVENT LISTENERS
  */
 startButton.addEventListener("click", startButtonHandler);
 padContainer.addEventListener("click", padHandler);
 
-/**
- * EVENT HANDLERS
+/*
+EVENT HANDLERS
  */
 function startButtonHandler() {
   roundCount = 1;
@@ -51,8 +51,8 @@ function padHandler(event) {
   checkPress(color);
 }
 
-/**
- * HELPER FUNCTIONS
+/*
+ HELPER FUNCTIONS
  */
 function getRandomItem(collection) {
   return collection[Math.floor(Math.random() * collection.length)];
@@ -124,8 +124,10 @@ function resetGame(message) {
   statusSpan.classList.add("hidden");
   padContainer.classList.add("unclickable");
 }
-/**
-* Exposing functions for testing
+
+
+/*
+ Exposing functions for testing
 */
 window.statusSpan = statusSpan;
 window.heading = heading;
