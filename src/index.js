@@ -6,8 +6,7 @@ const startButton = document.querySelector(".js-start-button");
 const statusSpan = document.querySelector(".js-status");
 const heading = document.querySelector(".js-heading");
 const padContainer = document.querySelector(".js-pad-container");
-const infoText = document.querySelector(".js-info-text");
-const levelSelect = document.querySelector("#levelSelect");
+
 
 /**
 * VARIABLES
