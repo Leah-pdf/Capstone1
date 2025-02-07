@@ -72,7 +72,7 @@ function activatePads(sequence) {
 
 function playComputerTurn() {
   padContainer.classList.add("unclickable");
-  setText(statusSpan, "The computer's turn...");
+  setText(statusSpan, "Crewmates turn...");
   setText(heading, `Round ${roundCount} of ${maxRoundCount}`);
   computerSequence.push(getRandomItem(pads).color);
   activatePads(computerSequence);
