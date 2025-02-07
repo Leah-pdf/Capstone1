@@ -24,12 +24,18 @@ startButton.addEventListener("click", startButtonHandler);
 padContainer.addEventListener("click", padHandler);
 
 /* EVENT HANDLERS */
+function setLevel(level) {
+  maxRoundCount = level * 2; // higher levels can have more rounds
+  setText(heading, `Level ${level} - Round 1 of ${maxRoundCount}`);
+} 
+
 function startButtonHandler() {
   roundCount = 1;
   computerSequence = [];
   playerSequence = [];
   startButton.classList.add("hidden");
   statusSpan.classList.remove("hidden");
+  setLevel(1);
   playComputerTurn();
 }
 
