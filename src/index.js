@@ -43,7 +43,8 @@ function padHandler(event) {
 
 /* HELPER FUNCTIONS */
 function getRandomItem(collection) {
-  return collection[Math.floor(Math.random() * collection.length)];
+  const colors = ["red", "green", "blue", "yellow"];
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 
 function setText(element, text) {
