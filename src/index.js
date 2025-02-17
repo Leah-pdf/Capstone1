@@ -1,6 +1,7 @@
 /* DOM SELECTORS */
 
 const startButton = document.querySelector(".js-start-button");
+const resetButton = document.querySelector(".js-reset-button");
 const statusSpan = document.querySelector(".js-status");
 const heading = document.querySelector(".js-heading");
 const padContainer = document.querySelector(".js-pad-container");
@@ -13,10 +14,10 @@ let roundCount = 0;
 
 /* Pads configuration */
 const pads = [
-  { color: "red", selector: document.querySelector(".js-pad-red"), sound: new Audio("../assets/simon-says-sound-1.mp3") },
-  { color: "green", selector: document.querySelector(".js-pad-green"), sound: new Audio("../assets/simon-says-sound-2.mp3") },
-  { color: "blue", selector: document.querySelector(".js-pad-blue"), sound: new Audio("../assets/simon-says-sound-3.mp3") },
-  { color: "yellow", selector: document.querySelector(".js-pad-yellow"), sound: new Audio("../assets/simon-says-sound-4.mp3") }
+  { color: "red", selector: document.querySelector(".js-pad-red"), sound: new Audio("./assets/simon-says-sound-1.mp3") },
+  { color: "green", selector: document.querySelector(".js-pad-green"), sound: new Audio("./assets/simon-says-sound-2.mp3") },
+  { color: "blue", selector: document.querySelector(".js-pad-blue"), sound: new Audio("./assets/simon-says-sound-3.mp3") },
+  { color: "yellow", selector: document.querySelector(".js-pad-yellow"), sound: new Audio("./assets/simon-says-sound-4.mp3") }
 ];
 
 /* EVENT LISTENERS */
@@ -40,17 +41,19 @@ function startButtonHandler() {
 }
 
 function padHandler(event) {
-  const { color } = event.target.dataset;
+  const { color } = event.target.dataset.color;
   if (!color) return;
   const pad = pads.find(pad => pad.color === color);
+  if (pad) {
   pad.sound.play();
   checkPress(color);
+  }
 }
 
 /* HELPER FUNCTIONS */
 function getRandomItem(collection) {
   const colors = ["red", "green", "blue", "yellow"];
-  return colors[Math.floor(Math.random() * colors.length)];
+  return collection[Math.floor(Math.random() * collection.length)];
 }
 
 function setText(element, text) {
@@ -116,6 +119,7 @@ function resetGame(message) {
   alert(message);
   setText(heading, "Captain's Orders");
   startButton.classList.remove("hidden");
+  resetButton.classList.remove("hidden");
   statusSpan.classList.add("hidden");
   padContainer.classList.add("unclickable");
 }
