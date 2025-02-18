@@ -1,5 +1,4 @@
-//**DOM SELECTORS
-*/
+//**DOM SELECTORS*/
 
 const startButton = document.querySelector(".js-start-button");
 const statusSpan = document.querySelector(".js-status"); // ✅ Selects the status element
@@ -24,16 +23,12 @@ const pads = [
  { color: "yellow", selector: document.querySelector(".js-pad-yellow"), sound: new Audio("../assets/simon-says-sound-4.mp3") }
 ];
 
-/**
-* EVENT LISTENERS
-*/
+/**EVENT LISTENERS*/
 
 startButton.addEventListener("click", startButtonHandler); // ✅ Start button event listener
 padContainer.addEventListener("click", padHandler); // ✅ Pads click event listener
 
-/**
-* EVENT HANDLERS
-*/
+/**EVENT HANDLERS*/
 
 // ✅ Start button handler
 function startButtonHandler() {
