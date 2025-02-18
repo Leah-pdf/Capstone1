@@ -1,5 +1,4 @@
-//**
-* DOM SELECTORS
+//**DOM SELECTORS
 */
 
 const startButton = document.querySelector(".js-start-button");
