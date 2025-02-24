@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&display=swap');
 
 html {
   background: url('https://m.media-amazon.com/images/I/817Vwv-cwtL.jpg') no-repeat center center fixed; 
@@ -12,7 +13,7 @@ html {
 
 body {
   color: rgb(255, 0, 0);
-  font-family: 'Rubik Microbe', sans-serif;
+  font-family: 'Uncial Antiqua', sans-serif;
   display: flex;
   justify-content: center;
   height: 100vh;
