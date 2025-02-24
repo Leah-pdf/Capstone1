@@ -118,7 +118,7 @@ function checkPress(color) {
  const index = playerSequence.length - 1;
 
  if (computerSequence[index] !== playerSequence[index]) {
-   resetGame("Oops! Wrong move. Try again!");
+   resetGame("Blimey! That be a blunder! Try yer hand again!");
    return;
  }
 
@@ -132,11 +132,11 @@ function checkPress(color) {
 // Check if the round is complete
 function checkRound() {
  if (roundCount === maxRoundCount) {
-   resetGame("🎉 Yee won! Well done! 🎉");
+   resetGame("🎉 Yo-ho-ho! Ye did it matey! 🎉");
  } else {
    roundCount++;
    playerSequence = [];
-   setText(statusSpan, "Atta laddy! Keep it up!");
+   setText(statusSpan, "Atta laddie! Keep it up!");
    setTimeout(playComputerTurn, 1000);
  }
 }
