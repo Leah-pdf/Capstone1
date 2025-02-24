@@ -20,8 +20,9 @@ body {
 }
 
 main {
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
   padding: 40px;
+  border-radius: 12px;
 }
 
 h1 {
