@@ -20,9 +20,10 @@ body {
 }
 
 main {
-  background-color: #005586; 
+  background-color: #005586a6; 
+  padding: 40px;
   opacity: 0.7x;
-  padding: 40px; 
+
 }
 
 h1 {
