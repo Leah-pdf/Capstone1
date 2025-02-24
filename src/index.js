@@ -109,7 +109,7 @@ function playComputerTurn() {
 // Player's turn to copy the sequence
 function playHumanTurn() {
  padContainer.classList.remove("unclickable");
- setText(statusSpan, `Your turn: ${computerSequence.length - playerSequence.length} presses left`);
+ setText(statusSpan, `Yarr turn: ${computerSequence.length - playerSequence.length} presses left`);
 }
 
 // Check if player clicked the correct sequence
