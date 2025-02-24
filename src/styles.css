@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap');
 
 html {
   background: url('https://m.media-amazon.com/images/I/817Vwv-cwtL.jpg') no-repeat center center fixed; 
@@ -30,6 +30,8 @@ main {
 h1 {
   text-align: center;
   font-size: 40px;
+  font-family: 'Jolly Lodger', cursive, 'sans-serif';
+  color: #ffcc00;
 }
 
 .game-controls {
