@@ -97,13 +97,13 @@ function activatePads(sequence) {
 // Computer plays its turn
 function playComputerTurn() {
  padContainer.classList.add("unclickable"); // Prevent user clicks
- setText(statusSpan, "The computer's turn...");
- setText(heading, `Waves ${roundCount} of ${maxRoundCount}`);
+ setText(statusSpan, "The captain's turn...");
+ setText(heading, `Waves ${waveCount} of ${maxWaveCount}`);
 
  computerSequence.push(getRandomItem(pads).color);
  activatePads(computerSequence);
 
- setTimeout(playHumanTurn, roundCount * 600 + 1000);
+ setTimeout(playHumanTurn, waveCount * 600 + 1000);
 }
 
 // Player's turn to copy the sequence
