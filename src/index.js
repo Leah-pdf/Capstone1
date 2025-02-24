@@ -148,7 +148,7 @@ function resetGame(message) {
  playerSequence = [];
  roundCount = 0;
 
- setText(heading, "Captain Says");
+ setText(heading, "Captain's Orders");
  startButton.classList.remove("hidden");
  statusSpan.classList.add("hidden");
  padContainer.classList.add("unclickable");
