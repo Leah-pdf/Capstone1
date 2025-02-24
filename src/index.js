@@ -125,18 +125,18 @@ function checkPress(color) {
  if (playerSequence.length === computerSequence.length) {
    checkRound();
  } else {
-   setText(statusSpan, `Your turn: ${computerSequence.length - playerSequence.length} presses left`);
+   setText(statusSpan, `Yarr turn: ${computerSequence.length - playerSequence.length} presses left`);
  }
 }
 
 // Check if the round is complete
 function checkRound() {
  if (roundCount === maxRoundCount) {
-   resetGame("🎉 You won! Well done! 🎉");
+   resetGame("🎉 Yee won! Well done! 🎉");
  } else {
    roundCount++;
    playerSequence = [];
-   setText(statusSpan, "Nice! Keep going!");
+   setText(statusSpan, "Atta laddy! Keep it up!");
    setTimeout(playComputerTurn, 1000);
  }
 }
@@ -148,7 +148,7 @@ function resetGame(message) {
  playerSequence = [];
  roundCount = 0;
 
- setText(heading, "Simon Says");
+ setText(heading, "Captain Says");
  startButton.classList.remove("hidden");
  statusSpan.classList.add("hidden");
  padContainer.classList.add("unclickable");
