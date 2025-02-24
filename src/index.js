@@ -1,9 +1,9 @@
 //**DOM SELECTORS*/
 
 const startButton = document.querySelector(".js-start-button");
-const statusSpan = document.querySelector(".js-status"); // ✅ Selects the status element
-const heading = document.querySelector(".js-heading"); // ✅ Selects the heading element
-const padContainer = document.querySelector(".js-pad-container"); // ✅ Selects the pad container
+const statusSpan = document.querySelector(".js-status"); // Selects the status element
+const heading = document.querySelector(".js-heading"); // Selects the heading element
+const padContainer = document.querySelector(".js-pad-container"); // Selects the pad container
 
 /**
 * VARIABLES
@@ -25,12 +25,12 @@ const pads = [
 
 /**EVENT LISTENERS*/
 
-startButton.addEventListener("click", startButtonHandler); // ✅ Start button event listener
-padContainer.addEventListener("click", padHandler); // ✅ Pads click event listener
+startButton.addEventListener("click", startButtonHandler); // Start button event listener
+padContainer.addEventListener("click", padHandler); // Pads click event listener
 
 /**EVENT HANDLERS*/
 
-// ✅ Start button handler
+
 function startButtonHandler() {
  roundCount = 1;
  computerSequence = [];
@@ -59,24 +59,24 @@ function padHandler(event) {
 * HELPER FUNCTIONS
 */
 
-// ✅ Set difficulty level
+// Set difficulty level
 function setLevel(level = 1) {
  const levelMap = { 1: 8, 2: 14, 3: 20, 4: 31 };
  maxRoundCount = levelMap[level] || 8; // Default to 8 rounds
  setText(heading, `Level ${level} - Round 1 of ${maxRoundCount}`);
 }
 
-// ✅ Get a random item from an array
+// Get a random item from an array
 function getRandomItem(collection) {
  return collection[Math.floor(Math.random() * collection.length)];
 }
 
-// ✅ Set text of an element
+//  Set text of an element
 function setText(element, text) {
  element.textContent = text;
 }
 
-// ✅ Light up a pad and play its sound
+//  Light up a pad and play its sound
 function activatePad(color) {
  const pad = pads.find(pad => pad.color === color);
  if (!pad) return;
@@ -87,18 +87,18 @@ function activatePad(color) {
  setTimeout(() => pad.selector.classList.remove("activated"), 500);
 }
 
-// ✅ Activate a sequence of pads
+// Activate a sequence of pads
 function activatePads(sequence) {
  sequence.forEach((color, index) => {
    setTimeout(() => activatePad(color), (index + 1) * 1000);
  });
 }
 
-// ✅ Computer plays its turn
+// Computer plays its turn
 function playComputerTurn() {
  padContainer.classList.add("unclickable"); // Prevent user clicks
  setText(statusSpan, "The computer's turn...");
- setText(heading, `Round ${roundCount} of ${maxRoundCount}`);
+ setText(heading, `Waves ${roundCount} of ${maxRoundCount}`);
 
  computerSequence.push(getRandomItem(pads).color);
  activatePads(computerSequence);
@@ -106,13 +106,13 @@ function playComputerTurn() {
  setTimeout(playHumanTurn, roundCount * 600 + 1000);
 }
 
-// ✅ Player's turn to copy the sequence
+// Player's turn to copy the sequence
 function playHumanTurn() {
  padContainer.classList.remove("unclickable");
  setText(statusSpan, `Your turn: ${computerSequence.length - playerSequence.length} presses left`);
 }
 
-// ✅ Check if player clicked the correct sequence
+// Check if player clicked the correct sequence
 function checkPress(color) {
  playerSequence.push(color);
  const index = playerSequence.length - 1;
@@ -129,7 +129,7 @@ function checkPress(color) {
  }
 }
 
-// ✅ Check if the round is complete
+// Check if the round is complete
 function checkRound() {
  if (roundCount === maxRoundCount) {
    resetGame("🎉 You won! Well done! 🎉");
@@ -141,7 +141,7 @@ function checkRound() {
  }
 }
 
-// ✅ Reset the game
+// Reset the game
 function resetGame(message) {
  alert(message);
  computerSequence = [];
