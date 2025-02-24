@@ -14,7 +14,7 @@ html {
 body {
   color: #ffcc00;
   font-family: 'Jolly Lodger', cursive;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -24,8 +24,7 @@ body {
 main {
   background-color: #005586b4; 
   padding: 40px;
-  opacity: 0.7x;
-
+  
 }
 
 h1 {
@@ -33,7 +32,7 @@ h1 {
   font-size: 40px;
   font-family: 'Jolly Lodger', cursive;
   color: #ffcc00;
-  letter-spacing: 5px;
+  letter-spacing: 2px;
 }
 
 .game-controls {
